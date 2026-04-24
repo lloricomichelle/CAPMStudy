@@ -1185,10 +1185,105 @@ td strong { color: var(--primary); }
    PRINT
 ───────────────────────────────────────────── */
 @media print {
-  #topbar, #toc-panel, #reading-progress, #back-to-top { display: none !important; }
-  #content-area { margin-right: 0 !important; }
-  #book-page { padding: 20px; max-width: 100%; }
-  .callout, .formula-block { page-break-inside: avoid; }
+
+  /* ── HIDE ALL UI CHROME ── */
+  #topbar,
+  #toc-panel,
+  #toc-overlay,
+  #reading-progress,
+  #back-to-top,
+  .page-nav,
+  .header-search,
+  #toc-toggle-btn { 
+    display: none !important; 
+  }
+
+  /* ── RESET LAYOUT FOR PRINT ── */
+  body {
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  #layout {
+    display: block !important;
+    margin-top: 0 !important;
+  }
+
+  #content-area {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    min-height: unset !important;
+  }
+
+  #book-page {
+    padding: 20px !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* ── PREVENT OVERLAP ── */
+  #toc-panel {
+    position: static !important;
+    transform: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    border: none !important;
+  }
+
+  /* ── PAGE BREAK RULES ── */
+  .callout { page-break-inside: avoid; }
+  .formula-block { page-break-inside: avoid; }
+  .principle-item { page-break-inside: avoid; }
+  .compare-grid { page-break-inside: avoid; }
+  .table-wrap { page-break-inside: avoid; }
+  .chapter-header { page-break-after: avoid; }
+  .section-title { page-break-after: avoid; }
+
+  /* ── PRINT TYPOGRAPHY ── */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000 !important;
+  }
+
+  .chapter-title {
+    font-size: 22pt;
+    color: #1a237e !important;
+  }
+
+  .section-title {
+    font-size: 14pt;
+    color: #1a237e !important;
+  }
+
+  /* ── ENSURE DARK BACKGROUNDS PRINT ── */
+  .formula-block {
+    background: #1a1a2e !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  th {
+    background: #1a237e !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .callout {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── REMOVE SHADOWS FOR CLEAN PRINT ── */
+  .table-wrap,
+  .principle-item,
+  .compare-col {
+    box-shadow: none !important;
+  }
 }
 
 /* ─────────────────────────────────────────────
