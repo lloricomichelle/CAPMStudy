@@ -1200,7 +1200,38 @@ td strong { color: var(--primary); }
 }
 
 @media (max-width: 768px) {
-  #toc-panel { display: none; }
+  /* TOC becomes a slide-in drawer on mobile */
+  #toc-panel {
+    display: block !important;
+    width: 85vw;
+    max-width: 320px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 500;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.18);
+  }
+
+  #toc-panel.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  #toc-panel.hidden {
+    transform: translateX(100%) !important;
+  }
+
+  /* Overlay behind TOC when open */
+  #toc-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 499;
+  }
+
+  #toc-overlay.visible {
+    display: block;
+  }
+
   #content-area { margin-right: 0; }
   #reading-progress { right: 0; }
   .compare-grid { grid-template-columns: 1fr; }
@@ -1319,6 +1350,11 @@ td strong { color: var(--primary); }
 <!-- ─────────────────────────────────────────────
      LAYOUT
 ───────────────────────────────────────────── -->
+<!-- Mobile TOC Overlay -->
+<div id="toc-overlay" onclick="closeMobileTOC()"></div>
+
+<div id="layout">
+  
 <div id="layout">
 
   <!-- ── MAIN CONTENT ── -->
@@ -1733,10 +1769,34 @@ const bookStructure = [
 let tocVisible = true;
 
 function toggleTOC() {
-  tocVisible = !tocVisible;
-  document.getElementById('toc-panel').classList.toggle('hidden', !tocVisible);
-  document.getElementById('content-area').classList.toggle('toc-hidden', !tocVisible);
-  document.getElementById('reading-progress').classList.toggle('toc-hidden', !tocVisible);
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    // Mobile: slide-in drawer behavior
+    const toc = document.getElementById('toc-panel');
+    const overlay = document.getElementById('toc-overlay');
+    const isOpen = toc.classList.contains('mobile-open');
+
+    if (isOpen) {
+      toc.classList.remove('mobile-open');
+      overlay.classList.remove('visible');
+    } else {
+      toc.classList.add('mobile-open');
+      toc.classList.remove('hidden');
+      overlay.classList.add('visible');
+    }
+  } else {
+    // Desktop: original hide/show behavior
+    tocVisible = !tocVisible;
+    document.getElementById('toc-panel').classList.toggle('hidden', !tocVisible);
+    document.getElementById('content-area').classList.toggle('toc-hidden', !tocVisible);
+    document.getElementById('reading-progress').classList.toggle('toc-hidden', !tocVisible);
+  }
+}
+
+function closeMobileTOC() {
+  document.getElementById('toc-panel').classList.remove('mobile-open');
+  document.getElementById('toc-overlay').classList.remove('visible');
 }
 
 // ─────────────────────────────────────────────
@@ -1753,7 +1813,10 @@ function buildTOC() {
       homeBtn.className = 'toc-chapter-btn';
       homeBtn.dataset.chId = 'home';
       homeBtn.innerHTML = `<span class="ch-num">🏠</span>${ch.title}`;
-      homeBtn.onclick = () => loadChapter('home');
+      homeBtn.onclick = () => {
+        loadChapter('home');
+        if (window.innerWidth <= 768) closeMobileTOC();
+      };
       tree.appendChild(homeBtn);
       return;
     }
@@ -1781,6 +1844,7 @@ function buildTOC() {
     `;
     chBtn.onclick = (e) => {
       loadChapter(ch.id);
+      if (window.innerWidth <= 768) closeMobileTOC();
       if (ch.sections.length > 0) {
         chBtn.classList.toggle('open');
         sectionsDiv.classList.toggle('open');
@@ -1803,6 +1867,7 @@ function buildTOC() {
         secBtn.onclick = (e) => {
           e.stopPropagation();
           loadChapter(ch.id, sec.id);
+          if (window.innerWidth <= 768) closeMobileTOC();
         };
         sectionsDiv.appendChild(secBtn);
       });
