@@ -114,6 +114,7 @@ body {
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
 .topbar-btn {
@@ -1306,6 +1307,7 @@ td strong { color: var(--primary); }
     align-items: center;
     gap: 6px;
     flex-shrink: 0;
+    margin-left: auto;
   }    
 
   .topbar-logo {
@@ -1527,10 +1529,6 @@ td strong { color: var(--primary); }
   <div class="topbar-sep"></div>
   <div class="topbar-breadcrumb" id="breadcrumb">Introduction</div>
   <div class="topbar-actions">
-    <div class="header-search">
-      <span>🔍</span>
-      <input type="text" id="global-search" placeholder="Search book..." oninput="handleSearch(this.value)">
-    </div>
     <button class="topbar-btn" onclick="window.print()" title="Print">🖨</button>
     <button id="toc-toggle-btn" onclick="toggleTOC()" title="Table of Contents">
       ☰
