@@ -1302,6 +1302,13 @@ td strong { color: var(--primary); }
     gap: 6px;
   }
 
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }    
+
   .topbar-logo {
     font-size: 13px;
     gap: 6px;
@@ -1317,14 +1324,18 @@ td strong { color: var(--primary); }
   }
 
   .topbar-breadcrumb {
-    font-size: 11px;
-    max-width: 100px;
+    display: none;
   }
 
   /* Make Print button smaller on mobile */
   .topbar-btn {
-    padding: 5px 8px;
-    font-size: 11px;
+    padding: 6px;
+    font-size: 14px;
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* TOC toggle button — bigger and more visible on mobile */
@@ -1516,7 +1527,7 @@ td strong { color: var(--primary); }
       <span>🔍</span>
       <input type="text" id="global-search" placeholder="Search book..." oninput="handleSearch(this.value)">
     </div>
-    <button class="topbar-btn" onclick="window.print()">🖨 Print</button>
+    <button class="topbar-btn" onclick="window.print()" title="Print">🖨</button>
     <button id="toc-toggle-btn" onclick="toggleTOC()" title="Table of Contents">
       ☰
     </button>
