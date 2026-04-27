@@ -1467,8 +1467,15 @@ td strong { color: var(--primary); }
       </p>
     </div>
 </div>
-</div>
 <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('capm_unlocked') === 'true') {
+      const gate = document.getElementById('password-gate');
+      if (gate) {
+        gate.style.display = 'none';
+      }
+    }
+  });
   const VALID_PASSWORDS = [
     'mrlcapmv12026',
     'capm7Xq9L2vA',
