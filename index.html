@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAPM Complete Study Book 2026</title>
+<title>CAPM Exam Study Guide 2026 | Independent Prep Notes</title>
 <style>
 :root {
   --toc-width: 320px;
@@ -1426,7 +1426,7 @@ td strong { color: var(--primary); }
 <div id="password-gate" style="position:fixed;inset:0;background:#1a237e;display:flex;align-items:center;justify-content:center;z-index:99999;font-family:'Segoe UI',sans-serif;">
   <div style="background:#fff;border-radius:16px;padding:40px 48px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);max-width:380px;width:90%;">
     <div style="font-size:48px;margin-bottom:12px;">📋</div>
-    <h2 style="color:#1a237e;font-size:22px;font-weight:800;margin-bottom:6px;">CAPM Study Book</h2>
+    <h2 style="color:#1a237e;font-size:22px;font-weight:800;margin-bottom:6px;">CAPM Exam Study Guide 2026 | Independent Prep Notes</h2>
     <p style="color:#767676;font-size:13px;margin-bottom:24px;">Enter your password to access</p>
     <input type="password" id="pw-input" placeholder="Enter password..." onkeydown="if(event.key==='Enter')checkPassword()" style="width:100%;padding:12px 16px;border:2px solid #e0ddd6;border-radius:8px;font-size:15px;outline:none;margin-bottom:12px;box-sizing:border-box;" onfocus="this.style.borderColor='#1a237e'" onblur="this.style.borderColor='#e0ddd6'">
     <div id="pw-error" style="color:#c62828;font-size:12px;margin-bottom:10px;min-height:18px;font-weight:600;"></div>
@@ -1437,47 +1437,66 @@ td strong { color: var(--primary); }
     
     <!-- Help section -->
     <p style="color:#767676;font-size:12px;margin-bottom:6px;">
-      🔑 Need access or forgot your password?
+      🔑 Need access or forgot your password? Contact via Etsy messages
     </p>
-    <a href="mailto:lloricomichelle@gmail.com" style="
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:#e3f2fd;
-      color:#1a237e;
-      padding:8px 16px;
-      border-radius:20px;
-      font-size:12px;
-      font-weight:700;
-      text-decoration:none;
-      transition:background 0.2s;
-    "
-    onmouseover="this.style.background='#bbdefb'"
-    onmouseout="this.style.background='#e3f2fd'">
-      ✉️ lloricomichelle@gmail.com
-    </a>
-
-    <p style="color:#9e9e9e;font-size:11px;margin-top:16px;">CAPM® Study Book 2026</p>
+    
+    <div style="font-size:11px;color:#9e9e9e;margin-top:16px;line-height:1.5;">
+      <p style="margin-bottom:6px;">
+        CAPM Exam Study Guide 2026 | Independent Prep Notes
+      </p>
+      <p>
+        CAPM® and PMBOK® are registered marks of the Project Management Institute, Inc.<br>
+        This product is an independent study guide and is not affiliated with, endorsed by, or sponsored by PMI.<br>
+        For personal use only. Sharing or redistribution is prohibited.
+      </p>
+    </div>
 </div>
 </div>
 <script>
-  const CORRECT_PASSWORD = 'mrlcapmv12026';
-  if (sessionStorage.getItem('capm_unlocked') === 'true') {
-    document.getElementById('password-gate').style.display = 'none';
-  }
+  const VALID_PASSWORDS = [
+    'capm7Xq9L2vA',
+    'mrlZ8pT3kQ91',
+    'xP4cLm92Qa7R',
+    'A9vTq3LzX6mP',
+    'K2mQ8rXc7PzL',
+    'u7LqP9X3vAm2',
+    'Zx3Qp7LmT9A2',
+    'R8vLm3PqZ2xT',
+    'mQ7PzX4L2vA9',
+    'T2xL9mQv7Pz3',
+    'cA9X7Lm2qP4Z',
+    'p3QX9LmT7vA2',
+    'L7m2PqX9Z3vA',
+    'X9qL2vA7P3mT',
+    'Q3LmP9Z2vX7A',
+    'vA2X9LmP7Q3z',
+    'm7PqZ2X9L3vA',
+    'Z3LmX9P2qA7v',
+    'A2v9QX7LmP3z',
+    'P9Lm2X7qA3vZ',
+    'qX3P9LmA2v7Z',
+    '7LmP2X9qZ3Av',
+    'X2vA9LmP3q7Z',
+    'mP3Z7qX2vA9L',
+    '9LmA2XqP7v3Z',
+    'A7qX2LmP9v3Z',
+    'P2X9LmA7q3vZ',
+    'Lm9X2PqA7v3Z',
+    'v3ZP9LmX2qA7',
+    'X7LmP2q9A3vZ'
+  ];
+  
   function checkPassword() {
     const input = document.getElementById('pw-input').value;
     const error = document.getElementById('pw-error');
-    if (input === CORRECT_PASSWORD) {
+  
+    if (VALID_PASSWORDS.includes(input)) {
       sessionStorage.setItem('capm_unlocked', 'true');
       const gate = document.getElementById('password-gate');
       gate.style.opacity = '0';
-      gate.style.transition = 'opacity 0.4s ease';
       setTimeout(() => gate.style.display = 'none', 400);
     } else {
       error.textContent = '❌ Incorrect password. Try again.';
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-input').focus();
     }
   }
 </script>
@@ -1487,7 +1506,7 @@ td strong { color: var(--primary); }
 ───────────────────────────────────────────── -->
 <header id="topbar">
   <div class="topbar-logo">
-    📋 CAPM Study Book
+    📋 CAPM Exam Study Guide 2026 | Independent Prep Notes
     <span>2026</span>
   </div>
   <div class="topbar-sep"></div>
@@ -1518,6 +1537,21 @@ td strong { color: var(--primary); }
   <!-- ── MAIN CONTENT ── -->
   <main id="content-area">
     <div id="book-page">
+
+    <div style="
+      background:#fff3e0;
+      border-left:4px solid #f57c00;
+      padding:12px 16px;
+      margin-bottom:20px;
+      font-size:12px;
+      line-height:1.5;
+      border-radius:6px;
+    ">
+      <strong>Disclaimer:</strong><br>
+      CAPM® and PMBOK® are registered marks of the Project Management Institute, Inc. 
+      This study guide is an independent resource and is not affiliated with, endorsed by, or sponsored by PMI.
+    </div>
+      
       <!-- Content injected by JS -->
     </div>
   </main>
@@ -2223,7 +2257,7 @@ function getChapterHTML(id) {
 const homeHTML = `
 <div class="home-hero">
   <div class="hero-badge">📋 PMI Certification Prep</div>
-  <h1>CAPM® Complete Study Book</h1>
+  <h1>CAPM Exam Study Guide 2026 | Independent Prep Notes</h1>
   <p>Your comprehensive, all-in-one reference for the Certified Associate in Project Management exam. Covers every topic from the official CAPM Exam Content Outline — PMBOK® 8, all four exam domains, formulas, and frameworks.</p>
 </div>
 
@@ -5835,5 +5869,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (saved) notesContent = saved;
 });
 </script>
+
+<footer style="
+  text-align:center;
+  padding:20px;
+  font-size:11px;
+  color:#767676;
+  border-top:1px solid #e0ddd6;
+  margin-top:40px;
+">
+  CAPM® and PMBOK® are registered marks of the Project Management Institute, Inc.
+  This product is not affiliated with, endorsed by, or sponsored by PMI.
+</footer>
 </body>
 </html>
